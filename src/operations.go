@@ -27,7 +27,8 @@ func (s *Stack) IsFull(maxTop int) bool {
 
 // Push adds a value to the stack if it's not full.
 // It returns an error message if the stack is full.
-func (s *Stack) Push(value int, maxTop int) error {
+func (s *Stack) Push(value int) error {
+	maxTop := len(*s) + 1 // Define maxTop based on the current length of the stack
 	if s.IsFull(maxTop) {
 		return errors.New(errMessage)
 	}
