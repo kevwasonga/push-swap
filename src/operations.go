@@ -8,9 +8,11 @@ type Stack []int
 // default error message to return in case of an error
 const errMessage = "Error"
 
+// Peek retrieves the top element of the stack without removing it.
+// Returns an error if the stack is empty.
 func (s *Stack) Peek() (int, error) {
-	if s.IsEmpty() {
-		return 0, errors.New(errMessage)
+	if len(*s) == 0 {
+		return 0, errors.New("stack is empty")
 	}
 	return (*s)[len(*s)-1], nil
 }
@@ -29,6 +31,7 @@ func (s *Stack) IsFull(maxTop int) bool {
 // It returns an error message if the stack is full.
 func (s *Stack) Push(value int) error {
 	maxTop := len(*s) + 1 // Define maxTop based on the current length of the stack
+
 	if s.IsFull(maxTop) {
 		return errors.New(errMessage)
 	}

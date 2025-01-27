@@ -1,6 +1,6 @@
 package src
 
-func (s *Stack) RotateRight() {
+func (s *Stack) RotateTop() {
 	if s.IsEmpty() {
 		return
 	}
@@ -25,7 +25,7 @@ func (s *Stack) RotateRight() {
 	}
 }
 
-func (s *Stack) RotateLeft() {
+func (s *Stack) RotateBottom() {
 	if s.IsEmpty() {
 		return
 	}
